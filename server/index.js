@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const database = require('../server/config/database')
+const database = require('../server/config/database');
 
 const app = express();
 
@@ -10,9 +10,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
+//database
+database()
+.then(()=>{
+    app.listen(5000,()=>console.log("server is running.."))
+})
 
 //routes
-
-
-app.listen(5000,()=>console.log("server is running.."))
