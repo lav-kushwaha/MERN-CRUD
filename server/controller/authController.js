@@ -5,10 +5,9 @@ const jwt = require("jsonwebtoken");
 //signup..
 const signup = async(req,res)=>{
     try {
+        const {userName,email,password} = req.body;
 
-        const {username,email,password} = req.body 
-
-        if(!username || !email ||!password){
+        if(!userName || !email ||!password){
             return res.status(400).json({
                 success:false,
                 message:"All fields are required"
@@ -47,6 +46,7 @@ const signup = async(req,res)=>{
             success:true,
             message:"Signup successfully."
         })
+
     } catch (error) {
         res.status(500).json({
             success:false,
@@ -90,7 +90,7 @@ const login = async (req,res)=>{
 
         res.cookie("token",token,{
             httpOnly:true,
-            maxAge:2*24*60*60*1000,
+            maxAge:2*24*60*60*1000, //2days
         })
 
         res.status(200).json({
