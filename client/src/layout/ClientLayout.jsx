@@ -5,9 +5,9 @@ import Footer from '../components/Footer'
 
 const Clientlayout = () => {
   return (
-    <div className='flex'>
-        <header>
-            <Header/>
+    <>
+        <header className='mb-2'>
+          <Header/>
         </header>
         <main>
             <Outlet/>
@@ -15,7 +15,7 @@ const Clientlayout = () => {
         <footer>
             <Footer/>
         </footer>
-    </div>
+    </>
   )
 }
 

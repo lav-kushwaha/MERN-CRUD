@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+
 const connectDB = require('../server/config/database');
 const cookieParser = require("cookie-parser");
 
@@ -10,7 +11,11 @@ const notesRouter = require("./routes/notesRoutes");
 
 const app = express();
 
-app.use(cors());          // allows frontend to talk to backend
+app.use(cors({
+    origin:"http://localhost:5173",
+    credentials:true
+})); // allows frontend to talk to backend
+
 app.use(express.json()); // lets server read JSON data you send
 app.use(cookieParser()); // lets server read cookies from browser
 
