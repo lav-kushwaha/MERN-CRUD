@@ -1,11 +1,17 @@
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import Clientlayout from "./layout/clientlayout"
+import Home from "./Pages/Home"
+
 function App() {
 
   return (
-    <>
-    <div>
-      <h1>Lav kushwaha..</h1>
-    </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Clientlayout/>}>
+          <Route path="/" element={<Home/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

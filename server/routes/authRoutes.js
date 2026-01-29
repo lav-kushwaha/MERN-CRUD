@@ -1,5 +1,5 @@
 const express = require('express');
-const {login,signup,logout} = require(".././controller/auth/authController");
+const {login,signup,logout} = require(".././controller/authController");
 const { userAuth } = require('../middleware/userAuth');
 
 const router = express.Router();
@@ -14,4 +14,6 @@ router.get("/checkauth",userAuth,(req,res)=>{
         success:true,
         data:user
     });
-})
+});
+
+module.exports = router

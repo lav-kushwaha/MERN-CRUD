@@ -112,6 +112,7 @@ const updateNotes = async(req,res)=>{
     }
 }
 
+//delete notes
 const deleteNotes = async(req,res)=>{
     try {
         const {id} = req.params;

@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 //signup..
 const signup = async(req,res)=>{
     try {
+
         const {userName,email,password} = req.body;
 
         if(!userName || !email ||!password){
@@ -45,7 +46,7 @@ const signup = async(req,res)=>{
         res.status(201).json({
             success:true,
             message:"Signup successfully."
-        })
+        });
 
     } catch (error) {
         res.status(500).json({
@@ -54,7 +55,6 @@ const signup = async(req,res)=>{
         })
     }
 }
-
 
 //login
 const login = async (req,res)=>{
