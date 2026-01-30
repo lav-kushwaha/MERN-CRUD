@@ -1,22 +1,15 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext} from "react";
 
 import Clientlayout from "./layout/clientlayout";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
-import authApi from "./api/authApi";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthContext } from "./context/AuthContext";
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
-  const [loading, setLoading] = useState(true); // ✅ start TRUE
-
-  useEffect(() => {
-    authApi.checkAuth()
-      .then(() => setIsAuth(true))
-      .catch(() => setIsAuth(false))
-      .finally(() => setLoading(false));
-  }, []);
+  
+  const {isAuth,loading} = useContext(AuthContext);
 
   return (
     <BrowserRouter>

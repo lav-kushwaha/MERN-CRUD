@@ -1,14 +1,28 @@
 import axiosInstance from "./axiosIntance";
 
 const authApi = {
-  login: (formData, config = {}) =>
-    axiosInstance.post("/auth/login", formData, config),
+  signup: (formData) =>
+    axiosInstance.post("/auth/signup", formData),
+
+  login: (formData) =>
+    axiosInstance.post(
+      "/auth/login",
+      formData,
+      { withCredentials: true }
+    ),
 
   logout: () =>
-    axiosInstance.post("/auth/logout", {}, { withCredentials: true }), //Send the cookies that belong to this backend along with this request.
+    axiosInstance.post(
+      "/auth/logout",
+      {},
+      { withCredentials: true }
+    ),
 
   checkAuth: () =>
-    axiosInstance.get("/auth/checkauth", { withCredentials: true })
+    axiosInstance.get(
+      "/auth/checkauth",
+      { withCredentials: true }
+    )
 };
 
 export default authApi;
