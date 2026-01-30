@@ -5,17 +5,16 @@ import Footer from '../components/Footer'
 
 const Clientlayout = () => {
   return (
-    <>
-        <header className='mb-2'>
-          <Header/>
-        </header>
-        <main>
-            <Outlet/>
+            <div className="min-h-screen flex flex-col">
+        <Header />
+
+        <main className="grow">
+            <Outlet />
         </main>
-        <footer>
-            <Footer/>
-        </footer>
-    </>
+
+        <Footer />
+        </div>
+
   )
 }
 
